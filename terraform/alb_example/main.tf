@@ -3,10 +3,13 @@ provider "aws" {
   region = "us-east-1"
 }
 
+<<<<<<< HEAD
 locals {
   instance_cluster_size = 2
 }
 
+=======
+>>>>>>> 70be07ae4d3b31941c6c91db308c6b3ed3602b25
 data "aws_ami" "latest-ubuntu" {
   most_recent = true
   owners      = ["099720109477"] # Canonical
@@ -35,9 +38,15 @@ module "vpc" {
   enable_dns_support   = true
 }
 
+<<<<<<< HEAD
 resource "aws_security_group" "allow_http_world" {
   name        = "allow_http_world"
   description = "Allow HTTP inbound traffic from the open internet"
+=======
+resource "aws_security_group" "allow_http" {
+  name        = "allow_http"
+  description = "Allow HTTP inbound traffic"
+>>>>>>> 70be07ae4d3b31941c6c91db308c6b3ed3602b25
   vpc_id      = module.vpc.vpc_id
 
   ingress {
